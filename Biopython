@@ -1,0 +1,60 @@
+FROM ubuntu:saucy
+MAINTAINER Tiago Antao <tra@popgen.net>
+
+#We need this for phylip
+RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sources.list
+
+RUN apt-get update
+RUN apt-get install -y git python-numpy wget gcc g++ python-dev unzip make
+RUN apt-get install -y python-matplotlib python-reportlab python-rdflib
+RUN apt-get install -y clustalw fasttree t-coffee
+RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
+RUN apt-get install -y samtools phyml wise raxml
+RUN apt-get install -y embassy-phylip paml
+#For BioSQL
+RUN apt-get install -y mysql-server python-mysqldb postgresql python-psycopg2
+RUN apt-get clean
+
+#Database servers
+RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.1/main/pg_hba.conf
+#RUN echo "service postgresql start" > .bashrc
+#RUN echo "service mysql start" >> .bashrc
+ENTRYPOINT service postgresql start
+ENTRYPOINT service mysql start
+
+
+
+#Manual software
+#reportlab fonts
+RUN wget http://www.reportlab.com/ftp/fonts/pfbfer.zip
+WORKDIR cd /usr/lib/python2.7/dist-packages/reportlab
+RUN  mkdir fonts
+WORKDIR cd /usr/lib/python2.7/dist-packages/reportlab/fonts
+RUN unzip /pfbfer.zip
+WORKDIR /
+RUN rm pfbfer.zip
+
+#genepop
+RUN mkdir genepop
+WORKDIR /genepop
+RUN wget http://kimura.univ-montp2.fr/~rousset/sources.tar.gz
+RUN tar zxf sources.tar.gz
+RUN g++ -DNO_MODULES -o Genepop GenepopS.cpp -O3
+RUN cp Genepop /usr/bin
+WORKDIR /
+RUN rm -rf genepop
+
+
+#msaprobs
+RUN wget "http://sourceforge.net/projects/msaprobs/files/latest/download?source=files" -O MSA.tar.gz
+RUN tar zxf MSA.tar.gz
+WORKDIR /MSAProbs-0.9.7/MSAProbs
+RUN make
+RUN cp msaprobs /usr/bin
+WORKDIR /
+
+
+#Biopython
+RUN git clone https://github.com/biopython/biopython.git
+WORKDIR /biopython
+RUN python setup.py install
