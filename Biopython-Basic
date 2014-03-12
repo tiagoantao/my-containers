@@ -45,7 +45,3 @@ WORKDIR /MSAProbs-0.9.7/MSAProbs
 RUN make
 RUN cp msaprobs /usr/bin
 WORKDIR /
-#Biopython
-RUN git clone https://github.com/biopython/biopython.git
-WORKDIR /biopython
-RUN python setup.py install

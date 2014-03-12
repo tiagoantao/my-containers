@@ -1,0 +1,7 @@
+#BuildBot
+RUN apt-get update
+RUN apt-get install -y buildbot-slave git
+
+RUN buildslave create-slave biopython testing.open-bio.org:9989 CHANGEUSER CHANGEPASS
+
+ENTRYPOINT buildslave start biopython
