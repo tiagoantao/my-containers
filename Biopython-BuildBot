@@ -4,4 +4,7 @@ RUN apt-get install -y buildbot-slave git
 
 RUN buildslave create-slave biopython testing.open-bio.org:9989 CHANGEUSER CHANGEPASS
 
-ENTRYPOINT buildslave start biopython
+RUN echo "buildslave start biopython" >> entrypoint.sh
+RUN echo "tail -f biopython/twistd.log" >> entrypoint.sh
+
+ENTRYPOINT bash entrypoint.sh

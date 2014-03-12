@@ -19,6 +19,8 @@ RUN apt-get clean
 RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.1/main/pg_hba.conf
 RUN echo "service postgresql start" > .bashrc
 RUN echo "service mysql start" >> .bashrc
+RUN echo "service postgresql start" > entrypoint.sh
+RUN echo "service mysql start" >> entrypoint.sh
 
 #Manual software
 
@@ -55,5 +57,8 @@ RUN apt-get install -y buildbot-slave git
 
 RUN buildslave create-slave biopython testing.open-bio.org:9989 CHANGEUSER CHANGEPASS
 
-ENTRYPOINT buildslave start biopython
+RUN echo "buildslave start biopython" >> entrypoint.sh
+RUN echo "tail -f biopython/twistd.log" >> entrypoint.sh
+
+ENTRYPOINT bash entrypoint.sh
 

@@ -16,6 +16,8 @@ RUN apt-get clean
 RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.1/main/pg_hba.conf
 RUN echo "service postgresql start" > .bashrc
 RUN echo "service mysql start" >> .bashrc
+RUN echo "service postgresql start" > entrypoint.sh
+RUN echo "service mysql start" >> entrypoint.sh
 
 #Manual software
 
