@@ -1,3 +1,6 @@
+FROM ubuntu:saucy
+MAINTAINER Tiago Antao <tra@popgen.net>
+
 #We need this for phylip
 RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sources.list
 
@@ -45,9 +48,12 @@ WORKDIR /MSAProbs-0.9.7/MSAProbs
 RUN make
 RUN cp msaprobs /usr/bin
 WORKDIR /
+
+#BuildBot
 RUN apt-get update
 RUN apt-get install -y buildbot-slave git
 
 RUN buildslave create-slave biopython testing.open-bio.org:9989 CHANGEUSER CHANGEPASS
 
 ENTRYPOINT buildslave start biopython
+
