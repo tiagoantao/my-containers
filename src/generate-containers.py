@@ -1,7 +1,6 @@
-containers = {
-    'Biopython': ['Biopython-Basic', 'Biopython-Run'],
-    'Biopython-Test': ['Biopython-Basic', 'Biopython-BuildBot'],
-}
+import sys
+sys.path.append('.')
+from containers import containers
 
 
 def generate_container(container, machine, content):
