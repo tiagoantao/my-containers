@@ -11,10 +11,12 @@ help generate the final containers
 Each directory has a set of container templates. The file
 containers.py specifies how to generate the containers proper, for example:
 
+```python
 containers = {
     'Biopython': ['Biopython-Basic', 'Biopython-Run'],
     'Biopython-Test': ['Biopython-Basic', 'Biopython-BuildBot'],
 }
+```
 
 Two containers will be generated:
 
