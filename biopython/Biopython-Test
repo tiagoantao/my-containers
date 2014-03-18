@@ -6,11 +6,11 @@ RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sou
 
 RUN apt-get update
 RUN apt-get install -y git python-numpy wget gcc g++ python-dev unzip make
-RUN apt-get install -y python-matplotlib python-reportlab python-pip
+RUN apt-get install -y python-matplotlib python-reportlab python-pip r-base
 RUN apt-get install -y clustalw fasttree t-coffee
 RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 RUN apt-get install -y samtools phyml wise raxml
-RUN apt-get install -y embassy-phylip paml
+RUN apt-get install -y embassy-phylip paml probcons
 #For BioSQL
 RUN apt-get install -y mysql-server python-mysqldb postgresql python-psycopg2
 RUN apt-get clean
@@ -21,8 +21,10 @@ RUN pip install rdflib
 RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.1/main/pg_hba.conf
 RUN echo "service postgresql start" > .bashrc
 RUN echo "service mysql start" >> .bashrc
+RUN echo "export DIALIGN2_DIR=/tmp" >> .bashrc
 RUN echo "service postgresql start" > entrypoint.sh
 RUN echo "service mysql start" >> entrypoint.sh
+RUN echo "export DIALIGN2_DIR=/tmp" >> entrypoint.sh
 
 #Manual software
 
@@ -86,6 +88,17 @@ RUN unzip fsc_linux64.zip
 RUN chmod a+x fsc_linux64/fastsimcoal21
 RUN cp fsc_linux64/fastsimcoal21 /usr/bin
 RUN rm -rf fsc_*
+
+#DSSP
+RUN wget ftp://ftp.cmbi.ru.nl/pub/software/dssp/dssp-2.0.4-linux-amd64
+RUN mv dssp-2.0.4-linux-amd64 /usr/bin/dssp
+
+#XXmotif
+WORKDIR /usr/local/bin
+RUN wget "http://xxmotif.genzentrum.lmu.de/index.php?id=download&version=64" -O xx.tar.gz
+RUN tar zxf xx.tar.gz
+RUN rm xx.tar.gz
+WORKDIR /
 
 #BuildBot
 RUN apt-get update
