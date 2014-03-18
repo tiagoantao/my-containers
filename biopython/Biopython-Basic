@@ -89,6 +89,7 @@ RUN rm -rf fsc_*
 #DSSP
 RUN wget ftp://ftp.cmbi.ru.nl/pub/software/dssp/dssp-2.0.4-linux-amd64
 RUN mv dssp-2.0.4-linux-amd64 /usr/bin/dssp
+RUN chmod a+x /usr/bin/dssp
 
 #XXmotif
 WORKDIR /usr/local/bin
