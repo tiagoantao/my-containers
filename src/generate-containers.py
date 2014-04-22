@@ -3,14 +3,16 @@ sys.path.append('.')
 from containers import containers
 
 
-def generate_container(container, machine, content):
+def generate_container(container, templates, vars):
     w = open(container, 'w')
-    w.write('FROM %s\n' % machine)
+    w.write('FROM %s\n' % vars['DIST'])
     w.write('MAINTAINER Tiago Antao <tra@popgen.net>\n\n')
-    for fname in content:
+    for fname in templates:
+        # should apply other vars
         w.write(open(fname).read())
         w.write('\n')
     w.close()
 
 for name, content in containers.items():
-    generate_container(name, "ubuntu:saucy", content)
+    templates, vars = content
+    generate_container(name, templates, vars)
