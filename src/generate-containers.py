@@ -8,8 +8,10 @@ def generate_container(container, templates, vars):
     w.write('FROM %s\n' % vars['DIST'])
     w.write('MAINTAINER Tiago Antao <tra@popgen.net>\n\n')
     for fname in templates:
-        # should apply other vars
-        w.write(open(fname).read())
+        temp_text = open(fname).read()
+        for var_name, var_replace in vars.items():
+            temp_text = temp_text.replace('<' + var_name + '>', var_replace)
+        w.write(temp_text)
         w.write('\n')
     w.close()
 
