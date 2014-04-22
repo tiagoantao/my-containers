@@ -2,14 +2,14 @@
 RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sources.list
 
 RUN apt-get update
-RUN apt-get install -y git python-numpy wget gcc g++ python-dev unzip make
-RUN apt-get install -y python-matplotlib python-reportlab python-pip r-base
+RUN apt-get install -y git <python>-numpy wget gcc g++ <python>-dev unzip make
+RUN apt-get install -y <python>-matplotlib <python>-reportlab <python>-pip r-base
 RUN apt-get install -y clustalw fasttree t-coffee
 RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 RUN apt-get install -y samtools phyml wise raxml
 RUN apt-get install -y embassy-phylip paml probcons
 #For BioSQL
-RUN apt-get install -y mysql-server python-mysqldb postgresql python-psycopg2
+RUN apt-get install -y mysql-server <python>-mysqldb postgresql <python>-psycopg2
 RUN apt-get clean
 #for Phylo_CDAO
 RUN pip install rdflib
@@ -28,9 +28,9 @@ RUN echo "export DIALIGN2_DIR=/tmp" >> entrypoint.sh
 
 #reportlab fonts
 RUN wget http://www.reportlab.com/ftp/fonts/pfbfer.zip
-WORKDIR cd /usr/lib/python2.7/dist-packages/reportlab
+WORKDIR cd /usr/lib/<python_dir>/dist-packages/reportlab
 RUN  mkdir fonts
-WORKDIR cd /usr/lib/python2.7/dist-packages/reportlab/fonts
+WORKDIR cd /usr/lib/<python_dir>/dist-packages/reportlab/fonts
 RUN unzip /pfbfer.zip
 WORKDIR /
 RUN rm pfbfer.zip
