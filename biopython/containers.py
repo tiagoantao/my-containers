@@ -4,7 +4,7 @@ for number, dist, lib_dir in [('', 'saucy', 'python2.7'),
     containers['Biopython%s' % number] = (
         ['Biopython-Basic', 'Biopython-Run'],
         {'DIST': dist, 'python': 'python%s' % number,
-         'python_dir': lib_dir})
+         'python_dir': lib_dir, 'pip': 'pip%s' % number})
     containers['Biopython%s-Test' % number] = (
         ['Biopython-Basic', 'Biopython-BuildBot'],
         {'DIST': dist, 'python': 'python%s' % number,
