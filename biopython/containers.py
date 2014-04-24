@@ -1,6 +1,6 @@
 containers = {}
-for number, dist, lib_dir in [('', 'ubuntu:saucy', 'python2.7'),
-                              ('3', 'ubuntu:trusty', 'python3.4')]:
+for number, dist, lib_dir in [('', 'saucy', 'python2.7'),
+                              ('3', 'trusty', 'python3.4')]:
     containers['Biopython%s' % number] = (
         ['Biopython-Basic', 'Biopython-Run'],
         {'DIST': dist, 'python': 'python%s' % number,

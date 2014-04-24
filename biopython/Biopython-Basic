@@ -1,5 +1,5 @@
 #We need this for phylip
-RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sources.list
+RUN echo 'deb http://archive.ubuntu.com/ubuntu <DIST> multiverse' >> /etc/apt/sources.list
 
 RUN apt-get update
 RUN apt-get install -y git <python>-numpy wget gcc g++ <python>-dev unzip make

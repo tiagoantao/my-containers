@@ -5,7 +5,7 @@ from containers import containers
 
 def generate_container(container, templates, vars):
     w = open(container, 'w')
-    w.write('FROM %s\n' % vars['DIST'])
+    w.write('FROM ubuntu:%s\n' % vars['DIST'])
     w.write('MAINTAINER Tiago Antao <tra@popgen.net>\n\n')
     for fname in templates:
         temp_text = open(fname).read()
