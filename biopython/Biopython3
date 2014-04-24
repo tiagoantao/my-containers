@@ -12,7 +12,7 @@ RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 RUN apt-get install -y samtools phyml wise raxml
 RUN apt-get install -y embassy-phylip paml probcons
 #For BioSQL
-RUN apt-get install -y mysql-server python3-mysqldb postgresql python3-psycopg2
+RUN apt-get install -y mysql-server python-mysqldb postgresql python3-psycopg2
 RUN apt-get clean
 #for Phylo_CDAO
 RUN pip install rdflib
