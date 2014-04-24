@@ -15,10 +15,10 @@ RUN apt-get install -y embassy-phylip paml probcons
 RUN apt-get install -y mysql-server python-mysqldb postgresql python3-psycopg2
 RUN apt-get clean
 #for Phylo_CDAO
-RUN <pip> install rdflib
+RUN pip3 install rdflib
 
 #Database servers
-RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.1/main/pg_hba.conf
+RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.3/main/pg_hba.conf
 RUN echo "service postgresql start" > .bashrc
 RUN echo "service mysql start" >> .bashrc
 RUN echo "export DIALIGN2_DIR=/tmp" >> .bashrc
