@@ -7,7 +7,7 @@ RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sou
 RUN apt-get update
 RUN apt-get install -y git python-numpy wget gcc g++ python-dev unzip make
 RUN apt-get install -y python-matplotlib python-reportlab python-pip r-base
-RUN apt-get install -y clustalw fasttree t-coffee python-pil
+RUN apt-get install -y clustalw fasttree t-coffee 
 RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 RUN apt-get install -y samtools phyml wise raxml
 RUN apt-get install -y embassy-phylip paml probcons
