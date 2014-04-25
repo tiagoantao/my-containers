@@ -7,7 +7,7 @@ RUN echo 'deb http://archive.ubuntu.com/ubuntu trusty multiverse' >> /etc/apt/so
 RUN apt-get update
 RUN apt-get install -y git python3-numpy wget gcc g++ python3-dev unzip make
 RUN apt-get install -y python3-matplotlib python3-reportlab python3-pip r-base
-RUN apt-get install -y clustalw fasttree t-coffee
+RUN apt-get install -y clustalw fasttree t-coffee python3-pil
 RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 RUN apt-get install -y samtools phyml wise raxml
 RUN apt-get install -y embassy-phylip paml probcons
