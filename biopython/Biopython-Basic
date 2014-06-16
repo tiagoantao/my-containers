@@ -2,7 +2,7 @@
 RUN echo 'deb http://archive.ubuntu.com/ubuntu <DIST> multiverse' >> /etc/apt/sources.list
 
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 RUN apt-get install -y git <python>-numpy wget gcc g++ <python>-dev unzip make
 RUN apt-get install -y <python>-matplotlib <python>-reportlab <python>-pip r-base
 RUN apt-get install -y clustalw fasttree t-coffee <pil>
