@@ -10,7 +10,8 @@ for number, dist, lib_dir, pg, pil in [
     containers['Biopython%s-tutorial' % number] = (
         ['Biopython-Basic', 'Biopython-Run', 'Biopython-nb'],
         {'DIST': dist, 'python': 'python%s' % number, 'pg': pg,
-         'pil': pil, 'python_dir': lib_dir, 'pip': 'pip%s' % number})
+         'pil': pil, 'python_dir': lib_dir, 'pip': 'pip%s' % number,
+         'ver': '%s' % number})
     containers['Biopython%s-Test' % number] = (
         ['Biopython-Basic', 'Biopython-BuildBot'],
         {'DIST': dist, 'python': 'python%s' % number, 'pg': pg,
