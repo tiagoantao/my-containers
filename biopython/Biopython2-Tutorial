@@ -6,18 +6,18 @@ RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sou
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y git python-numpy wget gcc g++ python-dev unzip make
-RUN apt-get install -y python-matplotlib python-reportlab python-pip r-base
+RUN apt-get install -y git python2-numpy wget gcc g++ python2-dev unzip make
+RUN apt-get install -y python2-matplotlib python2-reportlab python2-pip r-base
 RUN apt-get install -y clustalw fasttree t-coffee 
 RUN apt-get install -y bwa ncbi-blast+ emboss clustalo phylip mafft muscle
 RUN apt-get install -y samtools phyml wise raxml language-pack-en
 RUN apt-get install -y embassy-phylip paml probcons
 #For BioSQL
-RUN apt-get install -y mysql-server python-mysqldb postgresql python-psycopg2
-RUN apt-get install -y python-mysql.connector
+RUN apt-get install -y mysql-server python-mysqldb postgresql python2-psycopg2
+RUN apt-get install -y python2-mysql.connector
 RUN apt-get clean
 #for Phylo_CDAO
-RUN pip install rdflib
+RUN pip2 install rdflib
 
 #Database servers
 RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.1/main/pg_hba.conf
@@ -108,5 +108,11 @@ WORKDIR /
 #Biopython
 RUN git clone https://github.com/biopython/biopython.git
 WORKDIR /biopython
-RUN python setup.py install
+RUN python2 setup.py install
+
+#IPython notebook
+RUN apt-get install -y ipython
+RUN git clone https://github.com/tiagoantao/biopython-notebook.git
+WORKDIR /biopython-notebook/notebooks
+RUN ipython2 notebook --ip=* --port=9802
 
