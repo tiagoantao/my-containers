@@ -29,7 +29,14 @@ Two containers will be generated:
 
 To generate the containers, you can do
 
-1. cd to your directory of interest (e.g. bioython)
+1. cd to your directory of interest (e.g. biopython)
 
 2. python ..src/generate-containers.py
 
+LICENSE
+-------
+
+This code is distributed under a CC 1.0 Universal license. See the file
+LICENSE.txt for details.
+
+./tiago
