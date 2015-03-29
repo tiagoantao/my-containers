@@ -114,5 +114,5 @@ RUN python3 setup.py install
 RUN apt-get install -y ipython-notebook
 RUN mkdir scratch
 WORKDIR scratch
-RUN ipython notebook --ip=* --port=9803
+CMD ipython notebook --ip=* --port=9803
 
