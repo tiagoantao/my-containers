@@ -111,7 +111,7 @@ WORKDIR /biopython
 RUN python3 setup.py install
 
 #IPython notebook
-RUN apt-get install -y ipython
+RUN apt-get install -y ipython-notebook
 RUN mkdir scratch
 WORKDIR scratch
 CMD ipython notebook --ip=* --port=9803
