@@ -1,8 +1,8 @@
-FROM ubuntu:saucy
+FROM ubuntu:trusty
 MAINTAINER Tiago Antao <tra@popgen.net>
 
 #We need this for phylip
-RUN echo 'deb http://archive.ubuntu.com/ubuntu saucy multiverse' >> /etc/apt/sources.list
+RUN echo 'deb http://archive.ubuntu.com/ubuntu trusty multiverse' >> /etc/apt/sources.list
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -20,7 +20,7 @@ RUN apt-get clean
 RUN pip2 install rdflib
 
 #Database servers
-RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.1/main/pg_hba.conf
+RUN echo "host    all             all             ::1/128                 trust" > /etc/postgresql/9.3/main/pg_hba.conf
 RUN echo "service postgresql start" > .bashrc
 RUN echo "service mysql start" >> .bashrc
 RUN echo "export DIALIGN2_DIR=/tmp" >> .bashrc
