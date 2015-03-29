@@ -1,7 +1,7 @@
 containers = {}
 for number, dist, lib_dir, pg, pil in [
-    ('2', 'trusty', 'python2.7', '9.3', ''),
-    ('3', 'trusty', 'python3.4', '9.3', 'python3-pil')]:
+    ('2', 'vivid', 'python2.7', '9.3', ''),
+    ('3', 'vivid', 'python3.4', '9.3', 'python3-pil')]:
 
     containers['Biopython%s' % number] = (
         ['Biopython-Basic', 'Biopython-Run'],
