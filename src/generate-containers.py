@@ -7,6 +7,7 @@ def generate_container(container, templates, vars):
     w = open(container, 'w')
     w.write('FROM ubuntu:%s\n' % vars['DIST'])
     w.write('MAINTAINER Tiago Antao <tra@popgen.net>\n\n')
+    w.write('ENV DEBIAN_FRONTEND noninteractive\n')
     for fname in templates:
         temp_text = open(fname).read()
         for var_name, var_replace in vars.items():

@@ -1,6 +1,7 @@
 FROM ubuntu:vivid
 MAINTAINER Tiago Antao <tra@popgen.net>
 
+ENV DEBIAN_FRONTEND noninteractive
 #We need this for phylip
 RUN echo 'deb http://archive.ubuntu.com/ubuntu vivid multiverse' >> /etc/apt/sources.list
 
