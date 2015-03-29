@@ -114,5 +114,5 @@ RUN python3 setup.py install
 RUN apt-get install -y ipython
 RUN git clone https://github.com/tiagoantao/biopython-notebook.git
 WORKDIR /biopython-notebook/notebooks
-RUN ipython3 notebook --ip=* --port=9803
+CMD ipython notebook --no-browser --ip=* --port=9803
 

@@ -114,5 +114,5 @@ RUN python2 setup.py install
 RUN apt-get install -y ipython
 RUN mkdir scratch
 WORKDIR scratch
-RUN ipython2 notebook --ip=* --port=9802
+CMD ipython notebook --ip=* --port=9802
 

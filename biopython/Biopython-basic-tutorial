@@ -2,4 +2,4 @@
 RUN apt-get install -y ipython
 RUN git clone https://github.com/tiagoantao/biopython-notebook.git
 WORKDIR /biopython-notebook/notebooks
-RUN i<python> notebook --ip=* --port=980<ver>
+CMD ipython notebook --no-browser --ip=* --port=980<ver>
