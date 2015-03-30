@@ -105,6 +105,7 @@ RUN wget "http://xxmotif.genzentrum.lmu.de/index.php?id=download&version=64" -O 
 RUN tar zxf xx.tar.gz
 RUN rm xx.tar.gz
 WORKDIR /
+ENV PYTHON_PATH /biopython
 
 #BuildBot
 RUN apt-get update
