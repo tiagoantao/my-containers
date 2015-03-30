@@ -1,4 +1,5 @@
 #IPython notebook
+RUM apt-get install -y python<ver>-zmq
 RUN pip<ver> install ipython
 RUN mkdir scratch
 WORKDIR scratch

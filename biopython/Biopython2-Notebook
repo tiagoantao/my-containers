@@ -112,6 +112,7 @@ WORKDIR /biopython
 RUN python2 setup.py install
 
 #IPython notebook
+RUM apt-get install -y python2-zmq
 RUN pip2 install ipython
 RUN mkdir scratch
 WORKDIR scratch
