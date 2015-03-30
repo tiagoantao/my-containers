@@ -114,6 +114,7 @@ RUN python2 setup.py install
 #IPython notebook
 RUN apt-get install -y python2-zmq python2-jinja2
 RUN pip2 install tornado
+RUN pip2 install jsonschema
 RUN pip2 install ipython
 RUN mkdir scratch
 WORKDIR scratch
