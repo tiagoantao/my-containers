@@ -111,6 +111,7 @@ RUN git clone https://github.com/biopython/biopython.git
 WORKDIR /biopython
 RUN python3 setup.py install
 
+WORKDIR /
 #IPython notebook
 RUN apt-get install -y python3-zmq python3-jinja2
 RUN pip3 install tornado

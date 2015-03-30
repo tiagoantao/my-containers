@@ -1,3 +1,4 @@
+WORKDIR /
 #IPython notebook
 RUN apt-get install -y <pythonp>-zmq <pythonp>-jinja2
 RUN pip<ver> install tornado
