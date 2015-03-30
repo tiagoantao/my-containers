@@ -1,5 +1,5 @@
 #IPython notebook
-RUN apt-get install -y python<ver>-zmq
+RUN apt-get install -y python<ver>-zmq python<ver>-jinja2
 RUN pip<ver> install ipython
 RUN mkdir scratch
 WORKDIR scratch
