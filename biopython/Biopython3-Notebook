@@ -112,7 +112,7 @@ WORKDIR /biopython
 RUN python3 setup.py install
 
 #IPython notebook
-RUN apt-get install -y python3-zmq python3-jinja2
+RUN apt-get install -y python3-zmq <pythonxp>-jinja2
 RUN pip3 install tornado
 RUN pip3 install jsonschema
 RUN pip3 install ipython
