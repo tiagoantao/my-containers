@@ -1,5 +1,5 @@
 #IPython notebook
-RUN pip<ver> install ipython-notebook
+RUN pip<ver> install ipython
 RUN mkdir scratch
 WORKDIR scratch
 CMD ipython notebook --no-browser --ip=* --port=980<ver>

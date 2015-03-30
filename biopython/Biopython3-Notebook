@@ -112,7 +112,7 @@ WORKDIR /biopython
 RUN python3 setup.py install
 
 #IPython notebook
-RUN pip3 install ipython-notebook
+RUN pip3 install ipython
 RUN mkdir scratch
 WORKDIR scratch
 CMD ipython notebook --no-browser --ip=* --port=9803
